@@ -79,7 +79,7 @@ jobs:
           aws eks update-kubeconfig --name cluster --region us-east-1
 
           cd starter/frontend/k8s
-          kustomize edit set image frontend=${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+          kustomize edit set image frontend=${{ steps.login-ecr.outputs.registry }}/frontend:latest
           cd ../../..
 
           kubectl apply -k starter/frontend/k8s/
@@ -90,5 +90,5 @@ jobs:
           echo "==================== PODS & SERVICES ===================="
           kubectl get pods -o wide
           kubectl get svc frontend
-
+          
           
