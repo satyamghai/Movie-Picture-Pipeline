@@ -3,7 +3,7 @@ name: Frontend Continuous Deployment
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'starter/frontend/**'
   workflow_dispatch:
@@ -90,5 +90,5 @@ jobs:
           echo "==================== PODS & SERVICES ===================="
           kubectl get pods -o wide
           kubectl get svc frontend
-          
+
           
